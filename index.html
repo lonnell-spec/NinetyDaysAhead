@@ -3,11 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <title>90 Days Ahead — Staff Handout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  :root { --ink: #111; --rule: #111; --soft: #555; --band: #efefef; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* 2819 brand: red / black / charcoal / white; Inter display, Space Grotesk labels */
+  :root { --red: #D3121A; --black: #000; --ink: #1E1E1E; --rule: #1E1E1E;
+    --soft: #4A4A4A; --band: #F1F1EF;
+    --display: 'Inter', system-ui, -apple-system, sans-serif;
+    --label: 'Space Grotesk', 'Inter', system-ui, sans-serif; }
+  * { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { background: #fff; color: var(--ink);
-    font-family: Georgia, "Times New Roman", serif; }
+    font-family: var(--display); }
   @page { size: letter; margin: 0.5in; }
   .page { width: 7.5in; min-height: 10in; margin: 0 auto; padding: 0.1in 0;
     page-break-after: always; }
@@ -18,78 +26,79 @@
       width: 8.5in; min-height: 11in; box-shadow: 0 2px 12px rgba(0,0,0,.35); }
   }
 
-  .kicker { font-family: Helvetica, Arial, sans-serif; font-size: 8.5pt;
-    letter-spacing: .22em; text-transform: uppercase; color: var(--soft); }
-  h1 { font-size: 26pt; line-height: 1.05; margin: 2pt 0 2pt; }
-  .tagline { font-style: italic; font-size: 10.5pt; color: var(--soft); }
-  .headrule { border: 0; border-top: 2.5pt solid var(--rule); margin: 8pt 0 10pt; }
+  .kicker { font-family: var(--label); font-weight: 700; font-size: 8.5pt;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--red); }
+  h1 { font-size: 24pt; line-height: 1.05; margin: 2pt 0 2pt;
+    font-weight: 800; letter-spacing: -.015em; color: var(--black); }
+  .tagline { font-style: italic; font-size: 10pt; color: var(--soft); }
+  .headrule { border: 0; border-top: 3pt solid var(--red); margin: 8pt 0 10pt; }
 
-  h2 { font-family: Helvetica, Arial, sans-serif; font-size: 10pt;
+  h2 { font-family: var(--label); font-weight: 700; font-size: 9.5pt;
     letter-spacing: .14em; text-transform: uppercase; margin: 12pt 0 5pt;
-    border-bottom: 1pt solid var(--rule); padding-bottom: 2pt; }
-  .ws h2 { margin: 8pt 0 4pt; }
+    color: var(--black); border-bottom: 1.5pt solid var(--red); padding-bottom: 2pt; }
+  .ws h2 { margin: 6pt 0 3pt; }
   .ws p, .ws li { line-height: 1.3; }
-  p, li { font-size: 9.8pt; line-height: 1.38; }
+  p, li { font-size: 9.3pt; line-height: 1.38; }
   ol.steps { margin: 4pt 0 0 16pt; }
   ol.steps li { margin-bottom: 4.5pt; }
-  ol.steps b { font-family: Helvetica, Arial, sans-serif; font-size: 9pt;
+  ol.steps b { font-family: var(--label); font-weight: 700; font-size: 8.6pt;
     text-transform: uppercase; letter-spacing: .05em; }
 
   .ladder { display: flex; align-items: stretch; gap: 6pt; margin: 6pt 0 2pt; }
   .rung { flex: 1; border: 1.4pt solid var(--rule); padding: 5pt 6pt; text-align: center; }
-  .rung .num { font-family: Helvetica, Arial, sans-serif; font-weight: bold; font-size: 15pt; }
-  .rung .label { font-family: Helvetica, Arial, sans-serif; font-size: 7.5pt;
+  .rung .num { font-family: var(--label); font-weight: 700; font-size: 15pt; }
+  .rung .label { font-family: var(--label); font-weight: 700; font-size: 7.5pt;
     letter-spacing: .12em; text-transform: uppercase; }
-  .rung .desc { font-size: 8.3pt; font-style: italic; margin-top: 2.5pt; color: var(--soft); }
-  .rung.event { background: var(--ink); color: #fff; border-color: var(--ink); }
-  .rung.event .desc { color: #ddd; }
+  .rung .desc { font-size: 8pt; font-style: italic; margin-top: 2.5pt; color: var(--soft); }
+  .rung.event { background: var(--red); color: #fff; border-color: var(--red); }
+  .rung.event .desc { color: #FBD9DA; }
   .ladder-note { font-size: 8.5pt; font-style: italic; color: var(--soft); text-align: center; }
 
   table.dates { width: 100%; border-collapse: collapse; margin-top: 4pt; }
   table.dates th, table.dates td { border: 1pt solid var(--rule);
     padding: 3.5pt 5pt; font-size: 9pt; text-align: left; }
-  table.dates th { font-family: Helvetica, Arial, sans-serif; font-size: 7.8pt;
+  table.dates th { font-family: var(--label); font-weight: 700; font-size: 7.6pt;
     letter-spacing: .08em; text-transform: uppercase; background: var(--band); }
   table.dates td.ev { font-weight: bold; }
   .fill { color: var(--soft); }
 
   .breaks { columns: 2; column-gap: 18pt; margin: 4pt 0 0 16pt; }
-  .breaks li { break-inside: avoid; margin-bottom: 3pt; font-size: 9.3pt; }
+  .breaks li { break-inside: avoid; margin-bottom: 3pt; font-size: 8.9pt; }
 
   .footer { margin-top: 12pt; border-top: 1pt solid var(--rule); padding-top: 5pt;
     font-size: 8.5pt; font-style: italic; color: var(--soft); text-align: center; }
 
   /* ---------- worksheet side ---------- */
   .ws-line { display: inline-block; border-bottom: 1pt solid var(--ink); }
-  .ws-row { display: flex; gap: 10pt; margin-bottom: 6pt; font-size: 9.8pt; }
+  .ws-row { display: flex; gap: 10pt; margin-bottom: 6pt; font-size: 9.3pt; }
   .ws-row .grow { flex: 1; border-bottom: 1pt solid var(--ink); }
-  .ws-label { font-family: Helvetica, Arial, sans-serif; font-size: 8pt;
+  .ws-label { font-family: var(--label); font-weight: 700; font-size: 7.8pt;
     letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; padding-top: 2pt; }
 
   table.wsladder { width: 100%; border-collapse: collapse; margin-top: 4pt; }
   table.wsladder th, table.wsladder td { border: 1pt solid var(--rule);
-    padding: 4pt 5pt; font-size: 9pt; vertical-align: top; }
-  table.wsladder th { font-family: Helvetica, Arial, sans-serif; font-size: 7.8pt;
+    padding: 3pt 5pt; font-size: 9pt; line-height: 1.15; vertical-align: top; }
+  table.wsladder th { font-family: var(--label); font-weight: 700; font-size: 7.6pt;
     letter-spacing: .08em; text-transform: uppercase; background: var(--band);
     text-align: left; width: 1.55in; }
-  table.wsladder td { height: 0.27in; }
+  table.wsladder td { height: 0.22in; }
 
   table.backmap { width: 100%; border-collapse: collapse; margin-top: 4pt; }
   table.backmap th, table.backmap td { border: 1pt solid var(--rule);
-    padding: 3.5pt 5pt; font-size: 9pt; }
-  table.backmap th { font-family: Helvetica, Arial, sans-serif; font-size: 7.8pt;
+    padding: 2.5pt 5pt; font-size: 9pt; line-height: 1.15; }
+  table.backmap th { font-family: var(--label); font-weight: 700; font-size: 7.6pt;
     letter-spacing: .08em; text-transform: uppercase; background: var(--band);
     text-align: left; }
-  table.backmap td { height: 0.22in; }
+  table.backmap td { height: 0.175in; }
   table.backmap .n { width: 0.3in; text-align: center; color: var(--soft); }
   table.backmap .d { width: 1.3in; }
 
   .checks { list-style: none; margin: 3pt 0 0; }
-  .checks li { font-size: 9.3pt; margin-bottom: 2.5pt; }
-  .checks li::before { content: "\2610\00a0\00a0"; font-size: 10pt; }
+  .checks li { font-size: 8.9pt; margin-bottom: 2.5pt; }
+  .checks li::before { content: "\2610\00a0\00a0"; font-size: 10pt; color: var(--red); }
 
-  .commit { border: 2pt solid var(--ink); padding: 6pt 9pt; margin-top: 7pt; }
-  .commit p { font-size: 9.6pt; }
+  .commit { border: 2pt solid var(--red); padding: 5pt 8pt; margin-top: 5pt; }
+  .commit p { font-size: 9.2pt; }
 </style>
 </head>
 <body>
