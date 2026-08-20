@@ -51,9 +51,12 @@ written to anyone else's screen, storage, or account.
    connected Google Calendar or Notion (with your confirmation), or a
    portable prompt for Gemini / Notion AI. Every event carries the plan's
    `[TASK] ▸` prefix so replans update events instead of duplicating them.
-9. **Offers a stylized HTML calendar** — your actual dates and markers on a
-   dark-and-gold, print-friendly calendar page, saved on your machine next
-   to the plan.
+9. **Optional themed wall calendar.** A separate local renderer (`90plan`) can
+   draw a print-friendly wall calendar in a palette you pick once. It does
+   **not** ship with this skill, and in its current form it renders a plan
+   compiled into its own source rather than the plan you just made, so treat
+   it as a template rather than an export. The skill checks whether it exists
+   and stays quiet when it does not.
 10. **Sets up the Monday 9 a.m. week-ahead digest** — every Monday morning,
     a push notification or email with everything due that week across all
     your plans, grouped by day. Plus an automated daily walk and a monthly
@@ -68,7 +71,12 @@ Open Claude Code and say:
 > into my skills directory as `ninety-days-ahead`.
 
 Claude will place it at `~/.claude/skills/ninety-days-ahead/` (available in
-every project). That's the whole install.
+every project). That's the whole install: the clone is complete and the skill
+runs end to end with nothing else to set up.
+
+The optional `90plan` wall-calendar renderer mentioned in a couple of places
+is a separate local tool and is deliberately not in this repo. Without it the
+skill simply skips the theming step and never mentions it.
 
 ### Claude Code — the manual way
 ```bash

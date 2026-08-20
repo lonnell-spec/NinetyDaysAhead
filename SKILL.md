@@ -71,6 +71,61 @@ Ask for (or confirm, if already given):
 Reflect both back and state plainly: *"[Date] is a completion date, not a
 start date. Everything we do now is about arriving there finished."*
 
+## Phase 1.5 — Pick the palette (only when the renderer is installed)
+
+**This phase depends on the optional `90plan` renderer, which does not ship
+with this skill.** Check for it before anything else:
+
+```
+command -v 90plan
+```
+
+**If that finds nothing, skip this entire phase and never mention it.** Go
+straight to the markers. Every promise this skill makes — the markers, the
+step interrogation, the fit test, the margin math, the dated plan, the
+calendar events — works with no renderer at all. A person who just installed
+this skill should never see a failed command.
+
+**If it is installed**, the palette belongs to the person, not to the plan, so
+settle it once before dating anything. Check whether they have already chosen:
+
+```
+90plan --show-theme
+```
+
+- **Already chosen → say nothing and move on.** Never re-ask. "Permanent" means
+  permanent; a person who picked their colors in March should not be asked
+  again in July.
+- **Not chosen → this is step one.** Generate and open the picker:
+
+```
+90plan --picker
+```
+
+Then tell them plainly: *"Before we date anything, pick your colors. You do
+this once and every plan you ever make uses it."* Show them the nine palettes,
+note that each card carries its own lock-in command, and that they can supply
+four hex values instead if none fit. When they choose, run it for them:
+
+```
+90plan --set-theme <name>
+```
+
+Two things to say out loud, because they are the reasons this is a real step
+and not decoration:
+
+1. **It is theirs, not an inherited default.** Do not assume any house palette,
+   any employer's brand colors, or the palette of whoever set this up. A plan
+   that arrives in someone else's colors reads as someone else's plan.
+2. **Contrast is measured, not guessed.** Each card shows its WCAG ratio; body
+   text should clear 4.5:1 and the accent 3:1. The print accent is derived
+   automatically, so a custom color stays legible on paper without anyone
+   maintaining a second palette.
+
+The choice is stored in `~/.claude/ninety-days-ahead/preferences.json` and
+applies to every future plan. It can be changed any time by running
+`--set-theme` again; nothing else has to change.
+
 ## Phase 2 — Set the markers
 
 Count back in **calendar days** — never business days; weekends and holidays
@@ -216,14 +271,31 @@ skip it if the user declines.
 that replans can find and **update** existing events instead of stacking
 duplicates.
 
-**Always also offer the stylized HTML calendar.** Generate a self-contained
-`<task-slug>-calendar.html` saved beside the plan file: dark charcoal
-background (#111111), warm off-white text, amber-gold (#F5A623) accents;
-one calendar grid per month spanning the plan; the five markers highlighted
-in gold with their labels (START / CHECK / CONFIRM / FINAL / EVE); every
-step marked on its finish-by day with its name; the full dated task list
-beneath the grids; print-friendly. This is the person's plan as one
-wall-worthy page — theirs alone, saved on their machine.
+**The stylized wall calendar is an optional local extra, not part of the core
+flow.** It needs the same `90plan` renderer as Phase 1.5. If `command -v
+90plan` finds nothing, say nothing about it and move on; the plan file and the
+calendar events above are the complete deliverable.
+
+**If the renderer is installed, know its limit before you offer anything.**
+The current renderer draws a plan that is compiled into its own source, and it
+accepts no plan file as input. It cannot draw the plan you just built in this
+conversation. So never tell the user it will render their plan, and never
+generate it silently as if it had. Offer it plainly for what it is: a themed
+wall-calendar template, in their chosen palette, that they would have to adapt
+by hand.
+
+```
+90plan --pdf
+```
+
+Until the renderer accepts a plan file, treating this as a finished feature
+sets up the worst possible failure: a person prints a beautiful calendar and
+discovers it holds somebody else's dates.
+
+**Never hardcode a palette anywhere in this skill's output.** A plan that
+arrives in colors the owner did not choose reads as somebody else's plan, and
+that is exactly how a person ends up with a calendar in colors they never
+picked and cannot explain.
 
 ## Phase 8 — Automate the walk and the week
 
