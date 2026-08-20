@@ -115,8 +115,9 @@ stored plans, so they work in any conversation, any day:
 - **"daily walk"** — everything due today, across every plan, in under
   5 lines. Several items from several plans on one day is normal; seeing
   them all is the point.
-- **"week ahead"** — everything due this week, grouped by day (this is also
-  what the Monday 9 a.m. digest sends you).
+- **"week ahead"** — everything due this week, grouped by day. This is the
+  same content the Monday digest carries where your setup can send it; on a
+  fresh install the Monday alarm simply reminds you to ask for it.
 - **"monthly reset"** — the next 30 days, everything overdue, and every task
   whose 90-day marker falls this month.
 - **"slipped"** — a step missed its date. The skill recomputes downstream

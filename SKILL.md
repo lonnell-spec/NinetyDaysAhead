@@ -321,16 +321,18 @@ picked and cannot explain.
 
 Offer to schedule these so the system pokes the human, never the reverse:
 
-1. **Week-ahead digest — every Monday, 9:00 a.m.** The person gets everything
-   due that week across all their plans, grouped by day, as a push
-   notification or email. Delivery, in order of preference:
-   - a scheduled automation (Claude Code scheduled task / Routine / cron)
-     that assembles the digest from stored plans and delivers it as a push
-     notification;
-   - the person's own connected email — send the digest to their address;
-   - fallback: a recurring Monday 9:00 a.m. event on their calendar titled
-     "WEEK AHEAD — say '90 plan week ahead'", so an alarm still fires even
-     with no automation available.
+1. **Week-ahead digest — every Monday, 9:00 a.m.** Everything due that week
+   across all their plans, grouped by day. **How it reaches them depends
+   entirely on what this environment has, so check before promising
+   anything.** Delivery, in order of preference:
+   - if this environment can schedule recurring work, have it assemble the
+     digest from stored plans and deliver it to them;
+   - otherwise, if their own email is connected, send the digest there;
+   - otherwise, and **this is the normal result on a fresh setup**, create a
+     recurring Monday 9:00 a.m. calendar event titled
+     "WEEK AHEAD — say '90 plan week ahead'". Be straight about what that is:
+     the alarm fires, and they ask for the digest. Nothing is sent to them.
+     Never describe this fallback as an automatic digest.
 2. **Daily walk** — each morning, what's due today (same delivery options).
 3. **Monthly reset** — the 1st of each month.
 
