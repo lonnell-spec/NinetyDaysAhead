@@ -272,9 +272,14 @@ that replans can find and **update** existing events instead of stacking
 duplicates.
 
 **The stylized wall calendar is an optional local extra, not part of the core
-flow.** It needs the same `90plan` renderer as Phase 1.5. If `command -v
-90plan` finds nothing, say nothing about it and move on; the plan file and the
-calendar events above are the complete deliverable.
+flow.** It needs the same `90plan` renderer as Phase 1.5. Check again:
+
+```
+command -v 90plan
+```
+
+If that finds nothing, say nothing about the wall calendar and move on; the
+plan file and the calendar events above are the complete deliverable.
 
 **If the renderer is installed, know its limit before you offer anything.**
 The current renderer draws a plan that is compiled into its own source, and it
