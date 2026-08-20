@@ -64,8 +64,8 @@ verify, say what you found.
 ## Phase 1 — Identify the big task
 
 Ask for (or confirm, if already given):
-- **The big task/event** — one sentence, concrete ("Deliver the Crusade 2027
-  documentary", not "work on video stuff").
+- **The big task/event** — one sentence, concrete ("Deliver the finished
+  documentary to the festival", not "work on video stuff").
 - **The completion date.**
 
 Reflect both back and state plainly: *"[Date] is a completion date, not a
@@ -196,7 +196,7 @@ never "spread them out"; it is that **every task is reflected on the day it
 is required.** So when dates land, show what else already lives on those days
 and weeks (from stored plans and any visible calendar) so the user decides
 with open eyes: *"Heads up: this finish-by date shares Nov 10 with three
-Crusade steps and the newsletter deadline — keeping it there is fine if
+launch steps and the newsletter deadline — keeping it there is fine if
 that's a realistic day."* Inform, don't forbid.
 
 ## Phase 5 — The margin question (measured, not vibes)

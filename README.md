@@ -32,7 +32,7 @@ written to anyone else's screen, storage, or account.
 4. **Grounds the pushback in evidence.** When it can see your real world —
    connected calendars, Notion, files and folders, past plans — it checks
    your dates and claims against what's actually there, and tells you what
-   it found. "That week already holds three Crusade steps" beats "are you
+   it found. "That week already holds three launch steps" beats "are you
    sure?"
 5. **Times every step and tests the fit** — if the chain doesn't fit the
    runway, it says so plainly instead of shaving your estimates. Multiple
@@ -100,7 +100,7 @@ your conversations.
 
 Say **"90 plan"** and name your task — or any of these:
 
-- *"90 plan: the Crusade documentary is due April 1."*
+- *"90 plan: the documentary is due April 1."*
 - *"Back-map Baptism Sunday for me."*
 - *"Plan this backwards: staff Christmas production, December 20."*
 
