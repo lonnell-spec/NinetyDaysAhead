@@ -255,17 +255,32 @@ Calendar placement is not a nice-to-have — the 9 a.m. alerts are what make
 the system fire without human memory. Treat it as the default path and only
 skip it if the user declines.
 
-1. **Direct placement:** if calendar tools are connected (check with
-   ToolSearch), create the events: every step on its finish-by date and every
-   marker, each as an all-day event titled with the plan prefix
-   **"[TASK] ▸ [step]"**, with a **9:00 a.m. day-of reminder** plus a
+0. **Confirm before you create anything, always.** Show the full list first
+   (every step on its finish-by date, plus the five markers) and get an
+   explicit yes. Never create calendar entries, in any tool, without that yes.
+   A person who watches thirty events appear unasked will not trust the system
+   again.
+
+Then place them by the best means this environment actually has:
+
+1. **Direct placement:** if a calendar tool is available here (a connected
+   Google Calendar, or any calendar integration this client exposes), create
+   the confirmed events. Each is an all-day event titled with the plan prefix
+   **"[TASK] ▸ [step]"**, carrying a **9:00 a.m. day-of reminder** plus a
    day-before reminder. If steps have different owners and the calendar
-   supports attendees, offer to invite each owner to their own steps. Confirm
-   the full list with the user before creating anything.
-2. **Notion:** if connected, create the entries with a calendar view.
-3. **Portable prompt:** if nothing is connected, output a self-contained
-   prompt block for Gemini or Notion AI that recreates every entry with the
-   same dates and 9 a.m. reminders.
+   supports attendees, offer to invite each owner to their own steps.
+2. **Calendar file (works with nothing installed):** if no calendar tool is
+   available, generate a downloadable `.ics` file holding every event with its
+   reminders, and give the import path in plain words: Google Calendar on the
+   web, then Settings, then Import & export, then Import. Tell them Google may
+   apply their account's default notification settings to imported events, so
+   they should open one event afterward and confirm the 9 a.m. reminder is
+   there. **This is the normal outcome on a fresh install, not a failure
+   case.** Treat it as a first-class path and present it without apology.
+3. **Notion:** if a Notion tool is connected, offer to mirror the same entries
+   with a calendar view. Offer it; never assume it.
+4. **Last resort:** if this environment cannot produce a file at all, print
+   the full event list for the user to enter by hand.
 
 **The prefix is load-bearing:** all events for a plan carry `[TASK] ▸` so
 that replans can find and **update** existing events instead of stacking
@@ -339,8 +354,11 @@ Honor these anytime, reading from **storage** (never just chat memory):
      X days (Y%) remain."*
   3. If margin hits zero, say loudly that the plan is now fragile and force
      the honest options: cut scope, add hands, or move the date.
-  4. Update the stored plan file **and** update the calendar events by their
-     `[TASK] ▸` prefix — never create duplicates.
+  4. Update the stored plan file. Then bring the calendar back in line: with
+     a calendar tool connected, update the affected events in place by their
+     `[TASK] ▸` prefix and never create duplicates; with no tool connected,
+     hand over a corrected `.ics` covering only the changed events and say
+     plainly which ones to replace.
 
 ## Voice
 

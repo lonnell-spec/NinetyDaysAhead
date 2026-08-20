@@ -2,7 +2,9 @@
 
 A planning skill that makes sure nothing slips through the cracks. You give
 it one big task and its date; it gives you back a complete, dated,
-margin-protected plan — and puts it on your calendar with 9 a.m. reminders.
+margin-protected plan, then gets it onto your calendar with 9 a.m. reminders:
+directly if you have a calendar tool connected, otherwise as a calendar file
+you import in a few clicks.
 
 **Activate it** by calling it by name or just saying **"90 plan"**.
 
@@ -46,21 +48,25 @@ written to anyone else's screen, storage, or account.
    is written to storage (`~/.claude/ninety-days-ahead/plans/`, or Notion),
    so it outlives the conversation. Every plan ends with exactly one first
    action.
-8. **Places it on your personal calendar** — the 9 a.m. alerts are what make
-   the system fire without human memory. Direct placement through *your own*
-   connected Google Calendar or Notion (with your confirmation), or a
-   portable prompt for Gemini / Notion AI. Every event carries the plan's
-   `[TASK] ▸` prefix so replans update events instead of duplicating them.
+8. **Gets it onto your personal calendar** — the 9 a.m. alerts are what make
+   the system fire without human memory. It always shows you the full event
+   list and waits for your yes first. With a calendar tool connected it
+   creates the events on *your own* calendar; with nothing connected it hands
+   you a `.ics` file you import in a few clicks, which is the normal path on a
+   fresh install. Every event carries the plan's `[TASK] ▸` prefix so replans
+   update events instead of duplicating them.
 9. **Optional themed wall calendar.** A separate local renderer (`90plan`) can
    draw a print-friendly wall calendar in a palette you pick once. It does
    **not** ship with this skill, and in its current form it renders a plan
    compiled into its own source rather than the plan you just made, so treat
    it as a template rather than an export. The skill checks whether it exists
    and stays quiet when it does not.
-10. **Sets up the Monday 9 a.m. week-ahead digest** — every Monday morning,
-    a push notification or email with everything due that week across all
-    your plans, grouped by day. Plus an automated daily walk and a monthly
-    reset on the 1st, wherever the environment supports scheduling.
+10. **Offers a Monday 9 a.m. week-ahead digest** — everything due that week
+    across all your plans, grouped by day, plus a daily walk and a monthly
+    reset on the 1st. How far this can be automated depends on your setup: a
+    scheduler or connected email can send it to you, and where neither exists
+    the skill falls back to a recurring Monday calendar reminder that tells
+    you to ask for it. On a fresh install, expect the calendar reminder.
 
 ## Install
 
@@ -71,8 +77,10 @@ Open Claude Code and say:
 > into my skills directory as `ninety-days-ahead`.
 
 Claude will place it at `~/.claude/skills/ninety-days-ahead/` (available in
-every project). That's the whole install: the clone is complete and the skill
-runs end to end with nothing else to set up.
+every project). That's the whole install, and nothing else has to be set up:
+the planning conversation and the dated plan work as they are, and calendar
+placement falls back to a `.ics` file you import. Connecting a calendar or
+Notion tool later upgrades that to events created directly for you.
 
 The optional `90plan` wall-calendar renderer mentioned in a couple of places
 is a separate local tool and is deliberately not in this repo. Without it the
@@ -113,9 +121,10 @@ stored plans, so they work in any conversation, any day:
   whose 90-day marker falls this month.
 - **"slipped"** — a step missed its date. The skill recomputes downstream
   dates, tells you exactly how much margin that spent and how much remains,
-  updates the stored plan and the calendar events (no duplicates), and if
-  margin hits zero, forces the honest options: cut scope, add hands, or
-  move the date.
+  and updates the stored plan. Where a calendar tool is connected it updates
+  those events in place by their `[TASK] ▸` prefix rather than duplicating
+  them; otherwise it gives you a corrected `.ics` to re-import. If margin hits
+  zero it forces the honest options: cut scope, add hands, or move the date.
 
 ## The philosophy (60 seconds)
 
